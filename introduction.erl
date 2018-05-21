@@ -71,3 +71,39 @@ lessthan5([],R)->R;
 lessthan5([H|T], R)when  H >= 5 -> lessthan5(T,R); 
 lessthan5([H|T], R)when  H =< 5 -> lessthan5(T,R+1). 
 
+%0 at end 
+zero([])->[]; 
+zero([H|T]) when H == 0 -> zero(T)++[H]; 
+zero([H|T]) when H =/= 0 -> [H|zero(T)]. 
+
+izero([])->[]; 
+izero(L)->izero(L,[],[]). 
+
+izero([],L1,L2)->add_to_list(L1,L2); 
+izero([H|T], L1, L2) when H == 0 -> izero(T, L1, L2++[H]); 
+izero([H|T], L1, L2) when H =/= 0 -> izero(T,L1++[H], L2). 
+
+
+%1 at beginning 
+one([])->[]; 
+one([H|T]) when H == 1 -> [H|one(T)]; 
+one([H|T]) when H =/= 1 -> one(T)++[H]. 
+
+ione([])->[]; 
+ione(L)->ione(L,[],[]). 
+
+ione([],L1,L2)->add_to_list(L1,L2); 
+ione([H|T], L1, L2) when H == 1 -> ione(T, L1++[H], L2); 
+ione([H|T], L1, L2) when H =/= 1 -> ione(T,L1, L2++[H]). 
+
+%reverse 
+reverse([])->[]; 
+reverse([H|T])->reverse(T)++[H].  
+
+ireverse([])->[];
+ireverse(L)->ireverse(L, []). 
+
+ireverse([],L)->L; 
+ireverse([H|T],L) -> ireverse(T,[H|L]). 
+
+
