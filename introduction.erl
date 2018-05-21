@@ -106,4 +106,10 @@ ireverse(L)->ireverse(L, []).
 ireverse([],L)->L; 
 ireverse([H|T],L) -> ireverse(T,[H|L]). 
 
+%del element 
+del(H,[])->[]; 
+del(H,[H])->[]; 
+del(X, [H|T]) when X == H -> T; 
+del(X, [H|T]) when  X =/= H -> [H|del(X,T)]. 
+
 
